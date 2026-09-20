@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Steve Martinez Web Design</title>
+  <meta name="description" content="Ready-made websites for local trades and service businesses. Pick a template, I customize it with your info, and you're live in days.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Public+Sans:wght@400;500;600&display=swap">
+  <style>
+    :root {
+      --nav-bg: #0E3444;
+      --nav-bg-dark: #0A2632;
+      --accent: #D2610E;
+      --accent-hover: #B85310;
+      --surface: #F6F5F1;
+      --surface-alt: #EEEDE8;
+      --card-bg: #ffffff;
+      --text: #161A19;
+      --text-light: #4D5654;
+      --text-muted: #7A8582;
+      --border: #DCDAD1;
+      --tag-bg: #E8F0F4;
+      --tag-text: #0E3444;
+      --sold-bg: #FEF3EC;
+      --sold-text: #D2610E;
+      --shadow: 0 1px 4px rgba(14,52,68,0.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --nav-bg: #091E28; --nav-bg-dark: #06141B; --accent: #E07A2E; --accent-hover: #C86A20;
+        --surface: #0E1A1F; --surface-alt: #142228; --card-bg: #162930;
+        --text: #DAE4E8; --text-light: #9AACB2; --text-muted: #6A7E84;
+        --border: #1E3440; --tag-bg: #132830; --tag-text: #7ABADA;
+        --sold-bg: #2A1A0E; --sold-text: #E07A2E; --shadow: 0 1px 4px rgba(0,0,0,0.2);
+      }
+    }
+    :root[data-theme="dark"] {
+      --nav-bg: #091E28; --nav-bg-dark: #06141B; --accent: #E07A2E; --accent-hover: #C86A20;
+      --surface: #0E1A1F; --surface-alt: #142228; --card-bg: #162930;
+      --text: #DAE4E8; --text-light: #9AACB2; --text-muted: #6A7E84;
+      --border: #1E3440; --tag-bg: #132830; --tag-text: #7ABADA;
+      --sold-bg: #2A1A0E; --sold-text: #E07A2E; --shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; background: var(--surface); color: var(--text); padding: 0; line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Archivo', system-ui, sans-serif; font-weight: 800; line-height: 1.15; }
+    .nav { position: sticky; top: 0; z-index: 50; background: var(--nav-bg); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .nav-brand { font-family: 'Archivo', system-ui, sans-serif; font-weight: 800; font-size: 16px; color: #fff; text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 20px; }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-call { background: var(--accent); color: #fff !important; opacity: 1 !important; padding: 10px 20px; border-radius: 2px; font-family: 'Archivo', system-ui, sans-serif; font-weight: 700; font-size: 14px; }
+    .nav-call:hover { background: var(--accent-hover); }
+    @media (max-width: 600px) { .nav-links a:not(.nav-call) { display: none; } .nav-call { padding: 8px 14px; font-size: 13px; } }
+    .hero { background: var(--nav-bg); padding: 64px 20px 72px; }
+    .hero-inner { max-width: 780px; margin: 0 auto; }
+    .eyebrow { font-family: 'Archivo', system-ui, sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: var(--accent); margin-bottom: 12px; }
+    .hero h1 { color: #fff; font-size: clamp(30px, 5.5vw, 48px); margin-bottom: 16px; letter-spacing: -0.3px; }
+    .hero p { color: rgba(199,216,224,0.85); font-size: 18px; max-width: 540px; margin-bottom: 28px; }
+    .hero-note { color: rgba(199,216,224,0.55); font-size: 13px; }
+    .portfolio { padding: 56px 20px 64px; }
+    .portfolio-inner { max-width: 960px; margin: 0 auto; }
+    .portfolio h2 { font-size: clamp(24px, 4vw, 34px); margin-bottom: 8px; }
+    .portfolio-subtitle { color: var(--text-light); font-size: 16px; margin-bottom: 36px; max-width: 520px; }
+    .site-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .site-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; box-shadow: var(--shadow); transition: border-color 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+    .site-card:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(14,52,68,0.1); }
+    .site-preview { position: relative; aspect-ratio: 16 / 10; background: var(--nav-bg); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .site-preview-mock { width: 88%; height: 80%; background: var(--surface-alt); border-radius: 4px 4px 0 0; position: relative; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.2); }
+    .mock-bar { height: 22px; background: var(--nav-bg-dark); display: flex; align-items: center; gap: 4px; padding: 0 8px; }
+    .mock-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+    .mock-content { padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .mock-hero-block { height: 40px; border-radius: 2px; }
+    .mock-line { height: 6px; border-radius: 1px; background: var(--border); }
+    .mock-line.w60 { width: 60%; } .mock-line.w80 { width: 80%; } .mock-line.w40 { width: 40%; }
+    .mock-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: 2px; }
+    .mock-grid-item { height: 20px; border-radius: 2px; background: var(--border); opacity: 0.5; }
+    .site-card.tree .mock-hero-block { background: #1B3A2A; }
+    .site-card.auto .mock-hero-block { background: #1C2536; }
+    .site-card.remodel .mock-hero-block { background: #2C1810; }
+    .site-status { position: absolute; top: 10px; right: 10px; font-family: 'Archivo', system-ui, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 4px 10px; border-radius: 2px; }
+    .status-available { background: rgba(14,52,68,0.85); color: #fff; }
+    .status-coming { background: rgba(14,52,68,0.6); color: rgba(255,255,255,0.7); }
+    .site-info { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .site-trade { font-family: 'Archivo', system-ui, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); margin-bottom: 6px; }
+    .site-name { font-family: 'Archivo', system-ui, sans-serif; font-weight: 800; font-size: 20px; margin-bottom: 6px; line-height: 1.2; }
+    .site-desc { color: var(--text-light); font-size: 14px; line-height: 1.5; margin-bottom: 16px; flex: 1; }
+    .site-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+    .site-tag { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 2px; background: var(--tag-bg); color: var(--tag-text); }
+    .site-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .site-price { font-family: 'Archivo', system-ui, sans-serif; font-weight: 800; font-size: 22px; color: var(--text); }
+    .site-price span { font-weight: 400; font-size: 13px; color: var(--text-muted); }
+    .site-btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; background: var(--accent); color: #fff; text-decoration: none; font-family: 'Archivo', system-ui, sans-serif; font-weight: 700; font-size: 13px; border-radius: 2px; transition: background 0.2s; white-space: nowrap; }
+    .site-btn:hover { background: var(--accent-hover); }
+    .site-btn svg { width: 14px; height: 14px; }
+    .site-btn-ghost { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+    .site-btn-ghost:hover { background: var(--surface-alt); color: var(--text); border-color: var(--text-muted); }
+    .how { background: var(--surface-alt); padding: 56px 20px; }
+    .how-inner { max-width: 960px; margin: 0 auto; }
+    .how h2 { font-size: clamp(22px, 3.5vw, 30px); margin-bottom: 32px; }
+    .how-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+    .how-step { position: relative; padding-top: 28px; }
+    .how-step::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--accent); }
+    .step-label { font-family: 'Archivo', system-ui, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); margin-bottom: 8px; }
+    .how-step h3 { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+    .how-step p { color: var(--text-light); font-size: 14px; line-height: 1.5; }
+    .cta { background: var(--nav-bg); padding: 56px 20px; }
+    .cta-inner { max-width: 780px; margin: 0 auto; }
+    .cta h2 { color: #fff; font-size: clamp(24px, 4vw, 34px); margin-bottom: 12px; }
+    .cta p { color: rgba(199,216,224,0.8); font-size: 16px; max-width: 480px; margin-bottom: 24px; }
+    .cta .site-btn { font-size: 15px; padding: 14px 28px; }
+    .footer { background: var(--nav-bg-dark); padding: 24px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer p { color: rgba(199,216,224,0.45); font-size: 13px; }
+    .footer a { color: rgba(199,216,224,0.45); text-decoration: none; font-size: 13px; }
+    .footer a:hover { color: rgba(199,216,224,0.7); }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <a href="https://martinezsites.com" class="nav-brand">Steve Martinez Web Design</a>
+  <div class="nav-links">
+    <a href="https://martinezsites.com/#packages">Pricing</a>
+    <a href="https://martinezsites.com/#contact">Contact</a>
+    <a href="tel:+17607462315" class="nav-call">Call 760-746-2315</a>
+  </div>
+</nav>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Portfolio</div>
+    <h1>Ready-made websites<br>for your industry</h1>
+    <p>Professional sites built for local trades and service businesses. Pick one, I customize it with your info, and you're live in days, not weeks.</p>
+    <div class="hero-note">Each site is mobile-first, fast, and built for local search.</div>
+  </div>
+</section>
+<section class="portfolio">
+  <div class="portfolio-inner">
+    <div class="eyebrow">Available Now</div>
+    <h2>Sites you can buy today</h2>
+    <p class="portfolio-subtitle">These are fully built. I swap in your business name, phone, photos, and service area. You own the site and the domain.</p>
+    <div class="site-grid">
+      <div class="site-card tree">
+        <div class="site-preview">
+          <div class="site-preview-mock">
+            <div class="mock-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
+            <div class="mock-content">
+              <div class="mock-hero-block"></div>
+              <div class="mock-line w80"></div><div class="mock-line w60"></div>
+              <div class="mock-grid"><div class="mock-grid-item"></div><div class="mock-grid-item"></div><div class="mock-grid-item"></div><div class="mock-grid-item"></div></div>
+            </div>
+          </div>
+          <div class="site-status status-available">Available</div>
+        </div>
+        <div class="site-info">
+          <div class="site-trade">Tree Service</div>
+          <div class="site-name">Summit Tree Care</div>
+          <p class="site-desc">Full single-page site with services, testimonials, trust signals, and call-to-action. Built for tree trimming, removal, and stump grinding companies.</p>
+          <div class="site-tags"><span class="site-tag">Mobile-first</span><span class="site-tag">Local SEO</span><span class="site-tag">Click-to-call</span></div>
+          <div class="site-footer">
+            <div class="site-price">$500 <span>flat</span></div>
+            <a href="https://claude.ai/artifact/EiAXdiWo6FKwzEeYAGA3sh" target="_blank" class="site-btn">View Demo<svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="site-card auto">
+        <div class="site-preview">
+          <div class="site-preview-mock">
+            <div class="mock-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
+            <div class="mock-content">
+              <div class="mock-hero-block"></div>
+              <div class="mock-line w80"></div><div class="mock-line w60"></div>
+              <div class="mock-grid"><div class="mock-grid-item"></div><div class="mock-grid-item"></div><div class="mock-grid-item"></div><div class="mock-grid-item"></div></div>
+            </div>
+          </div>
+          <div class="site-status status-coming">Coming Soon</div>
+        </div>
+        <div class="site-info">
+          <div class="site-trade">Auto Repair</div>
+          <div class="site-name">Auto Shop Template</div>
+          <p class="site-desc">Service menu, online appointment requests, location and hours, customer reviews. For independent repair shops and specialty garages.</p>
+          <div class="site-tags"><span class="site-tag">Mobile-first</span><span class="site-tag">Service menu</span><span class="site-tag">Appointment CTA</span></div>
+          <div class="site-footer">
+            <div class="site-price">$500 <span>flat</span></div>
+            <span class="site-btn site-btn-ghost">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="site-card remodel">
+        <div class="site-preview">
+          <div class="site-preview-mock">
+            <div class="mock-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
+            <div class="mock-content">
+              <div class="mock-hero-block"></div>
+              <div class="mock-line w80"></div><div class="mock-line w40"></div>
+              <div class="mock-grid"><div class="mock-grid-item"></div><div class="mock-grid-item"></div><div class="mock-grid-item"></div><div class="mock-grid-item"></div></div>
+            </div>
+          </div>
+          <div class="site-status status-coming">Coming Soon</div>
+        </div>
+        <div class="site-info">
+          <div class="site-trade">Remodeling & Construction</div>
+          <div class="site-name">Contractor Template</div>
+          <p class="site-desc">Before-and-after gallery, service areas, licensing and insurance info, quote request form. For general contractors and remodelers.</p>
+          <div class="site-tags"><span class="site-tag">Mobile-first</span><span class="site-tag">Photo gallery</span><span class="site-tag">Quote form</span></div>
+          <div class="site-footer">
+            <div class="site-price">$500 <span>flat</span></div>
+            <span class="site-btn site-btn-ghost">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="how">
+  <div class="how-inner">
+    <div class="eyebrow">How It Works</div>
+    <h2>Pick a site, and I handle the rest</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-label">Step One</div>
+        <h3>Pick a template</h3>
+        <p>Browse the sites above and pick the one built for your trade. If you don't see yours, call me and I'll build one.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-label">Step Two</div>
+        <h3>Send me your info</h3>
+        <p>Business name, phone number, services, and any photos you have. I handle the rest, including the writing.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-label">Step Three</div>
+        <h3>Go live</h3>
+        <p>I connect your domain, test on real phones, and walk you through it. You own everything. Live in about a week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cta">
+  <div class="cta-inner">
+    <div class="eyebrow">Ready?</div>
+    <h2>Don't see your industry?</h2>
+    <p>I build custom sites too. Same flat pricing, same timeline. Call me and I'll give you a quote the same day.</p>
+    <a href="tel:+17607462315" class="site-btn">Call 760-746-2315</a>
+  </div>
+</section>
+<footer class="footer">
+  <p>&copy; 2026 Steve Martinez Web Design. San Diego County.</p>
+  <a href="https://martinezsites.com">martinezsites.com</a>
+</footer>
+</body>
+</html>

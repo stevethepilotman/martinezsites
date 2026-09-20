@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Steve Martinez Web Design | Websites for San Diego County Local Businesses</title>
+  <meta name="description" content="Fast, mobile-friendly websites for auto shops, gyms, contractors and trades across San Diego County and Temecula. Built in two weeks, from $500.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+  :root{
+    --ground:#F6F5F1;
+    --panel:#FFFFFF;
+    --panel-alt:#EDECE6;
+    --deep:#0E3444;
+    --deep-2:#0A2632;
+    --ink:#161A19;
+    --ink-soft:#4C5654;
+    --ink-faint:#7B8582;
+    --line:#DCDAD1;
+    --line-deep:rgba(255,255,255,.16);
+    --flag:#D2610E;
+    --flag-soft:#FBEDE1;
+
+    --display:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+    --pad:clamp(20px,5vw,40px);
+    --max:1080px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;}
+
+  h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.02em;text-wrap:balance;}
+  p{margin:0;}
+  a{color:inherit;}
+
+  .shell{max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+
+  .bar{background:var(--deep);color:#fff;position:sticky;top:0;z-index:100;}
+  .bar-in{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:13px;padding-bottom:13px;gap:12px;
+  }
+  .brand{font-family:var(--display);font-weight:800;font-size:1rem;letter-spacing:-.01em;}
+  .call{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--flag);color:#fff;padding:9px 18px;border-radius:2px;
+    text-decoration:none;font-weight:600;font-size:.92rem;white-space:nowrap;
+  }
+
+  .hero{background:var(--deep);color:#fff;padding-top:clamp(52px,10vw,100px);padding-bottom:clamp(52px,10vw,100px);}
+  .kicker{
+    display:block;font-family:var(--display);font-weight:600;font-size:.76rem;
+    letter-spacing:.17em;text-transform:uppercase;color:#7FBAD0;margin-bottom:14px;
+  }
+  h1{font-weight:800;font-size:clamp(2rem,5.4vw,3.2rem);line-height:1.08;max-width:18ch;}
+  .hero-sub{margin-top:18px;color:#B8D6E2;max-width:54ch;font-size:1.1rem;}
+  .hero-cta{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:14px 28px;border-radius:2px;font-weight:700;font-size:1rem;
+    text-decoration:none;transition:opacity .15s;
+  }
+  .btn:hover{opacity:.88;}
+  .btn-primary{background:var(--flag);color:#fff;}
+  .btn-ghost{border:2px solid rgba(255,255,255,.35);color:#fff;}
+  .hero-note{margin-top:14px;font-size:.88rem;color:#7FBAD0;font-style:italic;}
+
+  .strip{background:var(--deep-2);padding:16px 0;overflow:hidden;}
+  .strip-in{
+    display:flex;gap:24px;justify-content:center;flex-wrap:wrap;
+    font-family:var(--display);font-weight:600;font-size:.72rem;
+    letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);
+  }
+
+  section{padding-top:clamp(52px,8vw,88px);padding-bottom:clamp(52px,8vw,88px);}
+  .eyebrow{
+    font-family:var(--display);font-weight:600;font-size:.76rem;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--flag);margin-bottom:14px;
+  }
+  h2{font-weight:800;font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.1;max-width:20ch;}
+  .section-sub{margin-top:16px;color:var(--ink-soft);max-width:62ch;font-size:1.05rem;}
+
+  .trades{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:36px;}
+  .trade{background:var(--panel);padding:22px 20px;display:flex;flex-direction:column;gap:6px;}
+  .trade h3{font-weight:700;font-size:1.04rem;}
+  .trade p{font-size:.95rem;color:var(--ink-soft);}
+
+  .packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:36px;}
+  .pack{
+    background:var(--panel);border:1px solid var(--line);border-radius:2px;
+    padding:28px 24px;display:flex;flex-direction:column;gap:18px;
+  }
+  .featured{border-color:var(--flag);box-shadow:0 0 0 1px var(--flag);}
+  .pack-tag{
+    font-family:var(--display);font-weight:600;font-size:.7rem;
+    letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);
+  }
+  .featured .pack-tag{color:var(--flag);}
+  .pack h3{font-weight:800;font-size:1.2rem;}
+  .price{font-family:var(--display);font-weight:800;font-size:2.1rem;letter-spacing:-.03em;line-height:1;}
+  .price span{font-family:var(--body);font-size:.88rem;font-weight:500;color:var(--ink-faint);letter-spacing:0;}
+  .pack ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .pack li{font-size:.96rem;color:var(--ink-soft);padding-left:22px;position:relative;}
+  .pack li::before{
+    content:"";position:absolute;left:0;top:.62em;
+    width:9px;height:9px;border-left:2px solid var(--flag);border-bottom:2px solid var(--flag);
+    transform:rotate(-45deg) translateY(-2px);
+  }
+  .care{
+    margin-top:22px;background:var(--panel-alt);border-left:3px solid var(--deep);
+    padding:20px 24px;border-radius:2px;
+  }
+  .care h3{font-weight:700;font-size:1.06rem;margin-bottom:6px;}
+  .care p{color:var(--ink-soft);font-size:.98rem;max-width:60ch;}
+
+  .steps{margin-top:38px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;}
+  .step{display:flex;flex-direction:column;gap:9px;padding-top:18px;border-top:3px solid var(--deep);}
+  .step-n{font-family:var(--display);font-weight:800;font-size:.78rem;letter-spacing:.14em;color:var(--flag);}
+  .step h3{font-weight:700;font-size:1.1rem;}
+  .step p{color:var(--ink-soft);font-size:.97rem;}
+
+  .policies{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .pol-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:32px;}
+  .pol h3{font-weight:700;font-size:1rem;margin-bottom:8px;}
+  .pol p{color:var(--ink-soft);font-size:.95rem;}
+
+  .contact{background:var(--deep);color:#fff;}
+  .lines{margin-top:32px;display:flex;flex-direction:column;}
+  .line{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;
+    padding:16px 0;border-top:1px solid var(--line-deep);
+  }
+  .line:last-child{border-bottom:1px solid var(--line-deep);}
+  .line dt{
+    font-family:var(--display);font-weight:600;font-size:.74rem;letter-spacing:.14em;
+    text-transform:uppercase;color:#7FBAD0;min-width:150px;
+  }
+  .line dd{margin:0;font-size:1.06rem;font-weight:500;}
+  .line dd a{text-decoration-color:rgba(255,255,255,.4);text-underline-offset:3px;}
+
+  footer{background:var(--deep-2);color:#8FAEBC;padding:28px 0;font-size:.9rem;}
+  .foot-in{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;}
+
+  @media (max-width:640px){
+    body{font-size:16px;}
+    .bar-in{padding-top:10px;padding-bottom:10px;}
+    .brand{font-size:.92rem;}
+    .call{padding:8px 13px;font-size:.86rem;}
+    .digits{display:none;}
+    .brand{font-size:.85rem;}
+    .line dt{min-width:0;flex-basis:100%;}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;animation:none!important;}}
+  </style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="shell bar-in">
+    <span class="brand">Steve Martinez Web Design</span>
+    <a href="/portfolio.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;font-weight:500;margin-left:20px;">Portfolio</a>
+    <a class="call" href="tel:+17607462315">Call <span class="digits">760-746-2315</span></a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="shell">
+    <div class="kicker">San Diego County &amp; Temecula Valley</div>
+    <h1>Your customers looked you up. What did they find?</h1>
+    <p class="hero-sub">I build fast, mobile-first websites for local trades and service businesses. Two weeks, flat price, no monthly contract you can't get out of.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#contact">Get a free quote</a>
+      <a class="btn btn-ghost" href="#packages">See prices</a>
+    </div>
+    <p class="hero-note">Most sites launch in 10–14 days. Free look at your current site, no obligation.</p>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="shell strip-in">
+    <span>Auto repair</span>
+    <span>Gyms &amp; studios</span>
+    <span>General contractors</span>
+    <span>Electricians</span>
+    <span>Plumbing &amp; HVAC</span>
+    <span>Landscaping</span>
+  </div>
+</div>
+
+<section>
+  <div class="shell">
+    <div class="eyebrow">Who I work with</div>
+    <h2>Local businesses that are losing jobs to a search result</h2>
+    <p class="section-sub">If your site loads slowly, breaks on a phone, or doesn't exist, the customer calls the next shop on the list. That is the entire problem I fix.</p>
+    <div class="trades">
+      <div class="trade">
+        <h3>No website at all</h3>
+        <p>You run on referrals and a Facebook page. You get a real site with your services, hours, and a phone number people can tap.</p>
+      </div>
+      <div class="trade">
+        <h3>A site from 2014</h3>
+        <p>It still lists a fax number. Rebuilt clean, fast, and current, keeping anything that already works.</p>
+      </div>
+      <div class="trade">
+        <h3>Breaks on phones</h3>
+        <p>Most of your customers are on a phone in a parking lot. If they have to pinch and zoom, they leave.</p>
+      </div>
+      <div class="trade">
+        <h3>Nobody can find you</h3>
+        <p>Set up properly for local search so you show up when someone nearby searches for what you do.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="shell">
+    <div class="eyebrow">Straight pricing</div>
+    <h2>Flat price, agreed before I start</h2>
+    <p class="section-sub">Half up front, half when the site goes live. No hourly billing and no surprise invoice at the end.</p>
+    <div class="packs">
+      <div class="pack">
+        <div class="pack-tag">Starter</div>
+        <h3>One-Page Site</h3>
+        <div class="price">$500 <span>flat</span></div>
+        <ul>
+          <li>Single page, everything above the fold</li>
+          <li>Services, hours, service area</li>
+          <li>Tap-to-call and directions</li>
+          <li>Works on every phone</li>
+          <li>Live in about one week</li>
+        </ul>
+      </div>
+      <div class="pack featured">
+        <div class="pack-tag">Most common</div>
+        <h3>Full Business Site</h3>
+        <div class="price">$1,200 <span>flat</span></div>
+        <ul>
+          <li>Up to five pages</li>
+          <li>Photo gallery of your work</li>
+          <li>Contact and quote request form</li>
+          <li>Google Business Profile set up</li>
+          <li>Local search basics done right</li>
+          <li>Live in about two weeks</li>
+        </ul>
+      </div>
+      <div class="pack">
+        <div class="pack-tag">Complete</div>
+        <h3>Site + Online Payments</h3>
+        <div class="price">$2,000 <span>flat</span></div>
+        <ul>
+          <li>Everything in the full site</li>
+          <li>Online booking or scheduling</li>
+          <li>Take deposits and payments online</li>
+          <li>Review collection set up</li>
+          <li>Two rounds of revisions</li>
+        </ul>
+      </div>
+    </div>
+    <div class="care">
+      <h3>Care plan — $75/month, optional</h3>
+      <p>Hosting, security updates, backups, and small content changes whenever you need them. Month to month, cancel any time. Skip it and the site is yours to host wherever you like.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <div class="eyebrow">How it goes</div>
+    <h2>Three steps, and I do almost all of it</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-n">Step one</span>
+        <h3>A 15-minute call</h3>
+        <p>What you do, who you serve, and what you want the site to get you. I send a flat quote the same day.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">Step two</span>
+        <h3>I build it</h3>
+        <p>You send photos and your service list. I handle the writing, layout, and setup. You see a working draft before anything goes public.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">Step three</span>
+        <h3>It goes live</h3>
+        <p>I connect your domain, check it on real phones, and walk you through it. You own the site and the domain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="policies" id="policies">
+  <div class="shell">
+    <div class="eyebrow">The fine print, in plain English</div>
+    <h2>Payment, refunds, and cancellation</h2>
+    <div class="pol-grid">
+      <div class="pol">
+        <h3>Payment terms</h3>
+        <p>Projects are quoted at a flat price agreed in writing before work starts. 50% due to begin, 50% due when the site goes live. Invoices are sent by email and can be paid by bank transfer or card. Care plans bill monthly in advance.</p>
+      </div>
+      <div class="pol">
+        <h3>Refunds</h3>
+        <p>If you cancel before I start building, the deposit is refunded in full. Once work has started, the deposit covers time already spent and is non-refundable, but you keep everything produced up to that point. If the finished site doesn't match what was quoted, I fix it or refund the balance.</p>
+      </div>
+      <div class="pol">
+        <h3>Cancellation</h3>
+        <p>Care plans are month to month with no contract. Cancel by email any time and billing stops at the end of that month. There is no cancellation fee, and I will hand over your files and domain access.</p>
+      </div>
+      <div class="pol">
+        <h3>What you own</h3>
+        <p>When the final invoice is paid, the website, its content, and the domain are yours. I do not hold your domain hostage and I will transfer everything on request.</p>
+      </div>
+      <div class="pol">
+        <h3>Timeline</h3>
+        <p>Most projects launch 10–14 days after I have your photos and content. Delays in getting me materials move the date; I will always tell you where things stand.</p>
+      </div>
+      <div class="pol">
+        <h3>Questions or a problem</h3>
+        <p>Email or call using the details below. I answer within one business day, and usually much faster.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="shell">
+    <div class="eyebrow">Get in touch</div>
+    <h2>Tell me about your business</h2>
+    <p class="section-sub">Call, text, or email. I will take a look at what you have now and tell you straight whether it needs work.</p>
+    <dl class="lines">
+      <div class="line">
+        <dt>Business</dt>
+        <dd>Steve Martinez Web Design</dd>
+      </div>
+      <div class="line">
+        <dt>Phone</dt>
+        <dd><a href="tel:+17607462315">760-746-2315</a></dd>
+      </div>
+      <div class="line">
+        <dt>Email</dt>
+        <dd><a href="mailto:steve@martinezsites.com">steve@martinezsites.com</a></dd>
+      </div>
+      <div class="line">
+        <dt>Service area</dt>
+        <dd>San Diego County and the Temecula Valley</dd>
+      </div>
+      <div class="line">
+        <dt>Hours</dt>
+        <dd>Monday–Saturday, 8am–6pm Pacific</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <div class="shell foot-in">
+    <span>&copy; 2026 Steve Martinez Web Design. Website design for San Diego County.</span>
+    <a href="#policies">Payment &amp; refund policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
