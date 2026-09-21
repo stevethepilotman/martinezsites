@@ -237,40 +237,16 @@
       background: rgba(255,255,255,0.2);
     }
     .mock-content {
-      padding: 10px;
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      overflow: hidden;
     }
-    .mock-hero-block {
-      height: 40px;
-      border-radius: 2px;
+    .mock-content svg {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
-    .mock-line {
-      height: 6px;
-      border-radius: 1px;
-      background: var(--border);
-    }
-    .mock-line.w60 { width: 60%; }
-    .mock-line.w80 { width: 80%; }
-    .mock-line.w40 { width: 40%; }
-    .mock-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4px;
-      margin-top: 2px;
-    }
-    .mock-grid-item {
-      height: 20px;
-      border-radius: 2px;
-      background: var(--border);
-      opacity: 0.5;
-    }
-
-    /* card-specific mock colors */
-    .site-card.tree .mock-hero-block { background: #1B3A2A; }
-    .site-card.auto .mock-hero-block { background: #1C2536; }
-    .site-card.remodel .mock-hero-block { background: #2C1810; }
 
     .site-status {
       position: absolute;
@@ -523,15 +499,40 @@
               <div class="mock-dot"></div>
             </div>
             <div class="mock-content">
-              <div class="mock-hero-block"></div>
-              <div class="mock-line w80"></div>
-              <div class="mock-line w60"></div>
-              <div class="mock-grid">
-                <div class="mock-grid-item"></div>
-                <div class="mock-grid-item"></div>
-                <div class="mock-grid-item"></div>
-                <div class="mock-grid-item"></div>
-              </div>
+              <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                <!-- Nav -->
+                <rect width="200" height="10" fill="#1B3B2C"/>
+                <rect x="6" y="3" width="30" height="4" rx="1" fill="#C8A96E" opacity="0.9"/>
+                <rect x="150" y="3" width="20" height="4" rx="1" fill="#C8A96E" opacity="0.6"/>
+                <rect x="174" y="2.5" width="20" height="5" rx="1" fill="#C8A96E"/>
+                <!-- Hero -->
+                <rect y="10" width="200" height="44" fill="#1B3B2C"/>
+                <rect x="12" y="17" width="8" height="8" rx="4" fill="#2D5E3F" opacity="0.5"/>
+                <text x="12" y="34" font-family="sans-serif" font-size="7" font-weight="bold" fill="#F2F0E8">Professional Tree</text>
+                <text x="12" y="42" font-family="sans-serif" font-size="7" font-weight="bold" fill="#F2F0E8">Care Services</text>
+                <text x="12" y="49" font-family="sans-serif" font-size="3.2" fill="#F2F0E8" opacity="0.6">San Diego County</text>
+                <rect x="130" y="18" width="58" height="32" rx="2" fill="#2D5E3F" opacity="0.4"/>
+                <!-- Services -->
+                <rect y="54" width="200" height="40" fill="#F2F0E8"/>
+                <text x="100" y="62" font-family="sans-serif" font-size="4" font-weight="bold" fill="#1B3B2C" text-anchor="middle">Our Services</text>
+                <rect x="10" y="66" width="55" height="24" rx="2" fill="#fff" stroke="#E0DDD4" stroke-width="0.5"/>
+                <rect x="14" y="69" width="47" height="10" rx="1" fill="#2D5E3F" opacity="0.15"/>
+                <rect x="14" y="82" width="30" height="2" rx="0.5" fill="#1B3B2C" opacity="0.3"/>
+                <rect x="14" y="86" width="40" height="2" rx="0.5" fill="#1B3B2C" opacity="0.15"/>
+                <rect x="72" y="66" width="55" height="24" rx="2" fill="#fff" stroke="#E0DDD4" stroke-width="0.5"/>
+                <rect x="76" y="69" width="47" height="10" rx="1" fill="#2D5E3F" opacity="0.15"/>
+                <rect x="76" y="82" width="32" height="2" rx="0.5" fill="#1B3B2C" opacity="0.3"/>
+                <rect x="76" y="86" width="38" height="2" rx="0.5" fill="#1B3B2C" opacity="0.15"/>
+                <rect x="134" y="66" width="55" height="24" rx="2" fill="#fff" stroke="#E0DDD4" stroke-width="0.5"/>
+                <rect x="138" y="69" width="47" height="10" rx="1" fill="#2D5E3F" opacity="0.15"/>
+                <rect x="138" y="82" width="28" height="2" rx="0.5" fill="#1B3B2C" opacity="0.3"/>
+                <rect x="138" y="86" width="42" height="2" rx="0.5" fill="#1B3B2C" opacity="0.15"/>
+                <!-- CTA -->
+                <rect y="94" width="200" height="26" fill="#C8A96E" opacity="0.15"/>
+                <text x="100" y="106" font-family="sans-serif" font-size="4" font-weight="bold" fill="#1B3B2C" text-anchor="middle">Get a Free Quote</text>
+                <rect x="78" y="110" width="44" height="7" rx="1.5" fill="#C8A96E"/>
+                <text x="100" y="115" font-family="sans-serif" font-size="3.2" font-weight="bold" fill="#fff" text-anchor="middle">Call Now</text>
+              </svg>
             </div>
           </div>
           <div class="site-status status-available">Available</div>
@@ -566,15 +567,47 @@
               <div class="mock-dot"></div>
             </div>
             <div class="mock-content">
-              <div class="mock-hero-block"></div>
-              <div class="mock-line w80"></div>
-              <div class="mock-line w60"></div>
-              <div class="mock-grid">
-                <div class="mock-grid-item"></div>
-                <div class="mock-grid-item"></div>
-                <div class="mock-grid-item"></div>
-                <div class="mock-grid-item"></div>
-              </div>
+              <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                <!-- Nav -->
+                <rect width="200" height="10" fill="#141E2E"/>
+                <rect x="6" y="3" width="34" height="4" rx="1" fill="#fff" opacity="0.85"/>
+                <rect x="140" y="3" width="16" height="4" rx="1" fill="#fff" opacity="0.3"/>
+                <rect x="160" y="3" width="16" height="4" rx="1" fill="#fff" opacity="0.3"/>
+                <rect x="180" y="2.5" width="14" height="5" rx="1" fill="#CC3333"/>
+                <!-- Hero -->
+                <rect y="10" width="200" height="44" fill="#1A2740"/>
+                <rect x="130" y="14" width="62" height="36" rx="2" fill="#243350" opacity="0.6"/>
+                <circle cx="161" cy="32" r="10" fill="#CC3333" opacity="0.15"/>
+                <text x="14" y="27" font-family="sans-serif" font-size="6.5" font-weight="bold" fill="#fff">Honest Auto</text>
+                <text x="14" y="35" font-family="sans-serif" font-size="6.5" font-weight="bold" fill="#fff">Repair You Trust</text>
+                <text x="14" y="42" font-family="sans-serif" font-size="3.2" fill="#fff" opacity="0.55">Serving Oceanside since 2008</text>
+                <rect x="14" y="45" width="36" height="6" rx="1" fill="#CC3333"/>
+                <text x="32" y="49.5" font-family="sans-serif" font-size="3" font-weight="bold" fill="#fff" text-anchor="middle">Book Now</text>
+                <!-- Services -->
+                <rect y="54" width="200" height="40" fill="#F4F5F7"/>
+                <text x="100" y="62" font-family="sans-serif" font-size="4" font-weight="bold" fill="#141E2E" text-anchor="middle">Service Menu</text>
+                <rect x="10" y="66" width="42" height="24" rx="2" fill="#fff" stroke="#DDE0E5" stroke-width="0.5"/>
+                <circle cx="31" cy="74" r="4" fill="#CC3333" opacity="0.12"/>
+                <rect x="18" y="82" width="26" height="2" rx="0.5" fill="#141E2E" opacity="0.3"/>
+                <rect x="18" y="86" width="18" height="2" rx="0.5" fill="#141E2E" opacity="0.15"/>
+                <rect x="57" y="66" width="42" height="24" rx="2" fill="#fff" stroke="#DDE0E5" stroke-width="0.5"/>
+                <circle cx="78" cy="74" r="4" fill="#1A2740" opacity="0.12"/>
+                <rect x="65" y="82" width="26" height="2" rx="0.5" fill="#141E2E" opacity="0.3"/>
+                <rect x="65" y="86" width="20" height="2" rx="0.5" fill="#141E2E" opacity="0.15"/>
+                <rect x="104" y="66" width="42" height="24" rx="2" fill="#fff" stroke="#DDE0E5" stroke-width="0.5"/>
+                <circle cx="125" cy="74" r="4" fill="#CC3333" opacity="0.12"/>
+                <rect x="112" y="82" width="26" height="2" rx="0.5" fill="#141E2E" opacity="0.3"/>
+                <rect x="112" y="86" width="22" height="2" rx="0.5" fill="#141E2E" opacity="0.15"/>
+                <rect x="151" y="66" width="42" height="24" rx="2" fill="#fff" stroke="#DDE0E5" stroke-width="0.5"/>
+                <circle cx="172" cy="74" r="4" fill="#1A2740" opacity="0.12"/>
+                <rect x="159" y="82" width="26" height="2" rx="0.5" fill="#141E2E" opacity="0.3"/>
+                <rect x="159" y="86" width="18" height="2" rx="0.5" fill="#141E2E" opacity="0.15"/>
+                <!-- Reviews bar -->
+                <rect y="94" width="200" height="26" fill="#141E2E"/>
+                <text x="100" y="105" font-family="sans-serif" font-size="3.5" fill="#fff" opacity="0.7" text-anchor="middle">★ ★ ★ ★ ★  4.9 Rating</text>
+                <rect x="68" y="110" width="64" height="6" rx="1" fill="#CC3333" opacity="0.7"/>
+                <text x="100" y="114.5" font-family="sans-serif" font-size="3" font-weight="bold" fill="#fff" text-anchor="middle">Schedule Service</text>
+              </svg>
             </div>
           </div>
           <div class="site-status status-coming">Coming Soon</div>
@@ -605,15 +638,44 @@
               <div class="mock-dot"></div>
             </div>
             <div class="mock-content">
-              <div class="mock-hero-block"></div>
-              <div class="mock-line w80"></div>
-              <div class="mock-line w40"></div>
-              <div class="mock-grid">
-                <div class="mock-grid-item"></div>
-                <div class="mock-grid-item"></div>
-                <div class="mock-grid-item"></div>
-                <div class="mock-grid-item"></div>
-              </div>
+              <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                <!-- Nav -->
+                <rect width="200" height="10" fill="#1F2420"/>
+                <rect x="6" y="3" width="32" height="4" rx="1" fill="#A47542" opacity="0.9"/>
+                <rect x="130" y="3" width="14" height="4" rx="1" fill="#fff" opacity="0.3"/>
+                <rect x="148" y="3" width="14" height="4" rx="1" fill="#fff" opacity="0.3"/>
+                <rect x="166" y="3" width="14" height="4" rx="1" fill="#fff" opacity="0.3"/>
+                <rect x="184" y="2.5" width="10" height="5" rx="1" fill="#A47542"/>
+                <!-- Hero with image area -->
+                <rect y="10" width="200" height="44" fill="#EEECE5"/>
+                <rect x="110" y="12" width="84" height="40" rx="2" fill="#D4C8B8" opacity="0.5"/>
+                <rect x="114" y="16" width="76" height="32" rx="1" fill="#C4B4A0" opacity="0.4"/>
+                <text x="14" y="24" font-family="serif" font-size="4" fill="#A47542" letter-spacing="1">STONE &amp; BEAM</text>
+                <text x="14" y="32" font-family="serif" font-size="7" font-weight="bold" fill="#1F2420">Crafting Spaces</text>
+                <text x="14" y="40" font-family="serif" font-size="7" font-weight="bold" fill="#1F2420">That Inspire</text>
+                <rect x="14" y="44" width="34" height="6" rx="1" fill="#A47542"/>
+                <text x="31" y="48.5" font-family="sans-serif" font-size="3" font-weight="bold" fill="#fff" text-anchor="middle">Get a Quote</text>
+                <!-- Gallery -->
+                <rect y="54" width="200" height="40" fill="#FBFAF6"/>
+                <text x="100" y="62" font-family="serif" font-size="4" font-weight="bold" fill="#1F2420" text-anchor="middle">Recent Projects</text>
+                <rect x="10" y="66" width="58" height="24" rx="2" fill="#D4C8B8" opacity="0.4"/>
+                <rect x="12" y="68" width="54" height="16" rx="1" fill="#C4B4A0" opacity="0.35"/>
+                <rect x="12" y="86" width="30" height="2" rx="0.5" fill="#1F2420" opacity="0.3"/>
+                <rect x="12" y="89" width="20" height="1.5" rx="0.5" fill="#A47542" opacity="0.4"/>
+                <rect x="72" y="66" width="58" height="24" rx="2" fill="#D4C8B8" opacity="0.4"/>
+                <rect x="74" y="68" width="54" height="16" rx="1" fill="#C4B4A0" opacity="0.35"/>
+                <rect x="74" y="86" width="34" height="2" rx="0.5" fill="#1F2420" opacity="0.3"/>
+                <rect x="74" y="89" width="22" height="1.5" rx="0.5" fill="#A47542" opacity="0.4"/>
+                <rect x="134" y="66" width="58" height="24" rx="2" fill="#D4C8B8" opacity="0.4"/>
+                <rect x="136" y="68" width="54" height="16" rx="1" fill="#C4B4A0" opacity="0.35"/>
+                <rect x="136" y="86" width="28" height="2" rx="0.5" fill="#1F2420" opacity="0.3"/>
+                <rect x="136" y="89" width="18" height="1.5" rx="0.5" fill="#A47542" opacity="0.4"/>
+                <!-- Footer -->
+                <rect y="94" width="200" height="26" fill="#1F2420"/>
+                <text x="100" y="106" font-family="serif" font-size="4" fill="#EEECE5" opacity="0.8" text-anchor="middle">Schedule a Consultation</text>
+                <rect x="72" y="110" width="56" height="6" rx="1" fill="#A47542"/>
+                <text x="100" y="114.5" font-family="sans-serif" font-size="3" font-weight="bold" fill="#fff" text-anchor="middle">Contact Us</text>
+              </svg>
             </div>
           </div>
           <div class="site-status status-available">Available</div>
