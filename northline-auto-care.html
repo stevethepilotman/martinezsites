@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Northline Auto Care provides honest maintenance and repair with convenient online appointment requests.">
+  <title>Northline Auto Care | Honest work. Clear answers.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#15191d; --coal:#23292f; --cloud:#f4f3ef; --paper:#fff; --orange:#ed5c2b; --amber:#ffc95a; --steel:#93a0a8; --line:#d8d9d6; --body:"DM Sans",Arial,sans-serif; --display:"Barlow Condensed",Impact,sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--cloud); color:var(--ink); font-family:var(--body); line-height:1.55; }
+    img { display:block; max-width:100%; }
+    a { color:inherit; text-decoration:none; }
+    button,input,select,textarea { font:inherit; }
+    :focus-visible { outline:3px solid var(--amber); outline-offset:3px; }
+    .wrap { width:min(1180px,calc(100% - 48px)); margin:auto; }
+    .utility { position:relative; z-index:11; background:var(--ink); color:#fff; font-size:12px; font-weight:700; }
+    .utility .wrap { min-height:36px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .utility strong { color:var(--amber); letter-spacing:.03em; }
+    .site-header { position:fixed; z-index:10; inset:36px 0 auto; background:rgba(255,255,255,.96); box-shadow:0 1px 0 rgba(21,25,29,.12); backdrop-filter:blur(14px); }
+    .header-row { min-height:74px; display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:35px; }
+    .logo { display:inline-flex; align-items:center; gap:10px; color:var(--ink); font-family:var(--display); font-size:28px; font-weight:800; letter-spacing:.015em; line-height:.8; }
+    .logo-badge { display:grid; place-items:center; width:36px; height:36px; border-radius:50%; background:var(--orange); color:#fff; font-size:20px; transform:skew(-8deg); }
+    .nav { justify-self:center; display:flex; gap:25px; font-size:12px; font-weight:700; }
+    .nav a:hover { color:var(--orange); }
+    .button { display:inline-flex; min-height:45px; align-items:center; justify-content:center; padding:0 18px; border:1px solid var(--orange); background:var(--orange); color:#fff; font-size:12px; font-weight:700; letter-spacing:.02em; cursor:pointer; transition:.2s ease; }
+    .button:hover { background:var(--ink); border-color:var(--ink); }
+    .button.light { background:transparent; color:#fff; border-color:rgba(255,255,255,.6); }
+    .button.light:hover { background:#fff; color:var(--ink); }
+    .menu { display:none; border:0; background:none; color:var(--ink); font-size:12px; font-weight:700; cursor:pointer; }
+    .hero { position:relative; min-height:730px; overflow:hidden; background:var(--ink); color:#fff; }
+    /* Replace this demo photo with licensed shop or team photography before publishing. */
+    .hero::before { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(15,18,21,.92) 0%,rgba(15,18,21,.76) 42%,rgba(15,18,21,.22) 78%),url("https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=2200&q=90") center/cover; }
+    .hero .wrap { position:relative; display:flex; min-height:730px; align-items:center; padding:127px 0 45px; }
+    .hero-copy { max-width:695px; }
+    .kicker { display:flex; align-items:center; gap:10px; margin-bottom:18px; color:var(--amber); font-size:12px; font-weight:700; letter-spacing:.08em; }
+    .kicker::before { content:""; width:27px; height:2px; background:currentColor; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:650px; margin-bottom:22px; font-family:var(--display); font-size:clamp(4.3rem,9.5vw,8.9rem); font-weight:800; line-height:.82; letter-spacing:-.035em; text-transform:uppercase; }
+    h2 { font-family:var(--display); font-size:clamp(3rem,5.5vw,5.6rem); font-weight:800; line-height:.88; letter-spacing:-.025em; text-transform:uppercase; }
+    h3 { font-family:var(--display); font-size:2rem; font-weight:700; line-height:.96; text-transform:uppercase; }
+    .hero-copy > p { max-width:48ch; color:rgba(255,255,255,.83); font-size:16px; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+    .hero-trust { position:absolute; inset:auto 0 0; border-top:1px solid rgba(255,255,255,.28); }
+    .trust-row { min-height:92px; display:grid; grid-template-columns:repeat(3,1fr); }
+    .trust { display:flex; align-items:center; gap:14px; padding:14px 25px; border-right:1px solid rgba(255,255,255,.28); font-size:12px; font-weight:700; }
+    .trust:first-child { border-left:1px solid rgba(255,255,255,.28); }
+    .trust b { color:var(--amber); font-family:var(--display); font-size:30px; line-height:1; }
+    section { padding:110px 0; }
+    .intro { display:grid; grid-template-columns:1fr .9fr; align-items:end; gap:9%; }
+    .intro p { max-width:40ch; margin:0 0 8px auto; color:#505860; }
+    .services { padding-top:51px; }
+    .service-grid { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+    .service { min-height:285px; display:flex; flex-direction:column; justify-content:space-between; padding:28px 24px; background:var(--paper); border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .service:nth-child(even) { background:#eceeea; }
+    .service-icon { width:38px; height:38px; display:grid; place-items:center; border:2px solid var(--orange); border-radius:50%; color:var(--orange); font-family:var(--display); font-size:19px; font-weight:800; }
+    .service h3 { margin:25px 0 9px; }
+    .service p { margin:0; color:#596169; font-size:13px; }
+    .service a { margin-top:19px; color:var(--orange); font-size:12px; font-weight:700; }
+    .service a::after { content:" →"; }
+    .offer { background:var(--coal); color:#fff; }
+    .offer-grid { display:grid; grid-template-columns:1fr 1fr; }
+    .offer-copy { padding:70px 8vw 70px max(24px,calc((100vw - 1180px)/2)); }
+    .offer h2 { margin-bottom:17px; }
+    .offer p { max-width:42ch; color:rgba(255,255,255,.72); }
+    .offer-art { min-height:440px; background:linear-gradient(0deg,rgba(21,25,29,.18),rgba(21,25,29,.18)),url("https://images.unsplash.com/photo-1632823471565-1ec0f2f1f1f1?auto=format&fit=crop&w=1100&q=85") center/cover; }
+    .appointment-link { display:inline-flex; gap:11px; align-items:center; margin-top:14px; color:var(--amber); font-size:13px; font-weight:700; }
+    .appointment-link span { display:grid; place-items:center; width:25px; height:25px; border:1px solid currentColor; border-radius:50%; }
+    .reviews { background:#fff; }
+    .review-grid { display:grid; grid-template-columns:.75fr 1.25fr; gap:10%; align-items:start; }
+    .rating { color:var(--orange); font-size:15px; letter-spacing:.14em; }
+    .review { padding:0 0 36px; margin-bottom:36px; border-bottom:1px solid var(--line); }
+    .review:last-child { border:0; margin:0; }
+    .review blockquote { margin:9px 0 13px; font-family:var(--display); font-size:clamp(2rem,3.2vw,3.2rem); font-weight:700; line-height:1; text-transform:uppercase; }
+    .review cite { font-size:12px; font-style:normal; font-weight:700; color:#626970; }
+    .process { background:var(--cloud); }
+    .process-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:54px; border-top:2px solid var(--ink); }
+    .step { padding:27px 27px 0 0; border-right:1px solid var(--line); }
+    .step + .step { padding-left:27px; }
+    .step:last-child { border:0; }
+    .step-number { display:block; margin-bottom:47px; color:var(--orange); font-family:var(--display); font-size:4.2rem; font-weight:800; line-height:.7; }
+    .step p { max-width:30ch; color:#5b6268; font-size:13px; }
+    .appointment { background:var(--orange); color:#fff; }
+    .appointment-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:10%; }
+    .appointment h2 { margin-bottom:19px; }
+    .appointment-copy p { max-width:39ch; color:rgba(255,255,255,.88); }
+    .shop-details { margin-top:35px; font-size:13px; font-weight:700; }
+    form { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .field { display:grid; gap:5px; }
+    .field.full { grid-column:1/-1; }
+    label { font-size:12px; font-weight:700; }
+    input,select,textarea { width:100%; border:1px solid rgba(255,255,255,.55); border-radius:0; padding:12px; background:rgba(255,255,255,.11); color:#fff; }
+    option { color:var(--ink); }
+    textarea { min-height:91px; resize:vertical; }
+    input::placeholder,textarea::placeholder { color:rgba(255,255,255,.7); }
+    .appointment .button { border-color:var(--ink); background:var(--ink); justify-self:start; }
+    .appointment .button:hover { background:#fff; color:var(--ink); }
+    .form-message { grid-column:1/-1; padding:28px; background:var(--ink); font-family:var(--display); font-size:1.7rem; line-height:1; text-transform:uppercase; }
+    footer { padding:50px 0 23px; background:var(--ink); color:#fff; }
+    .footer-grid { display:grid; grid-template-columns:1.35fr 1fr 1fr; gap:40px; }
+    footer .logo { color:#fff; }
+    footer p { max-width:30ch; margin:16px 0 0; color:rgba(255,255,255,.6); font-size:12px; }
+    footer h3 { margin-bottom:14px; font-family:var(--body); font-size:12px; letter-spacing:.04em; }
+    .footer-links { display:grid; gap:6px; color:rgba(255,255,255,.72); font-size:12px; }
+    .footer-bottom { display:flex; justify-content:space-between; gap:20px; margin-top:40px; padding-top:18px; border-top:1px solid rgba(255,255,255,.16); color:rgba(255,255,255,.45); font-size:11px; }
+    @media (max-width:780px) {
+      .wrap { width:min(100% - 38px,620px); }
+      .utility .wrap { justify-content:center; min-height:33px; }
+      .utility .wrap span:last-child { display:none; }
+      .site-header { inset:33px 0 auto; }
+      .header-row { min-height:63px; grid-template-columns:1fr auto; }
+      .logo { font-size:24px; }.logo-badge { width:31px;height:31px; }
+      .header-row > .button { display:none; }.nav { display:none; }
+      .menu { display:block; }
+      .nav.open { position:absolute; display:grid; gap:0; top:63px; left:0; right:0; padding:9px 19px; background:var(--paper); box-shadow:0 15px 28px rgba(0,0,0,.13); }
+      .nav.open a { padding:12px 0; border-bottom:1px solid var(--line); }
+      .hero,.hero .wrap { min-height:680px; }.hero .wrap { padding-top:115px; }
+      h1 { font-size:clamp(4rem,19vw,6rem); }.hero-trust { position:relative; margin-top:-133px; }
+      .trust-row,.intro,.offer-grid,.review-grid,.appointment-grid,.footer-grid { grid-template-columns:1fr; }
+      .trust { min-height:72px; border-left:0!important; border-right:0; border-bottom:1px solid rgba(255,255,255,.28); padding:11px 0; }.trust-row { border-top:1px solid rgba(255,255,255,.28); }
+      section { padding:78px 0; }.intro { gap:18px; }.intro p { margin-left:0; }.services { padding-top:29px; }
+      .service-grid { grid-template-columns:1fr 1fr; }.service { min-height:255px; padding:20px; }
+      .offer-copy { padding:69px 19px; }.offer-art { min-height:330px; }
+      .review-grid { gap:37px; }.process-grid { grid-template-columns:1fr; margin-top:34px; }.step,.step + .step { padding:26px 0; border-right:0; border-bottom:1px solid var(--line); }.step-number { margin-bottom:26px; }
+      .appointment-grid { gap:40px; } form { grid-template-columns:1fr; }.field.full { grid-column:auto; }.footer-grid { gap:28px; }.footer-bottom { display:block; }.footer-bottom span+span { display:block; margin-top:5px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; animation-iteration-count:1!important; } }
+  </style>
+</head>
+<body>
+  <div class="utility"><div class="wrap"><strong>HONEST WORK. CLEAR ANSWERS.</strong><span>Independent repair for most makes and models</span><a href="tel:+15550176442">(555) 017-6442</a></div></div>
+  <header class="site-header"><div class="wrap header-row">
+    <a class="logo" href="#top" aria-label="Northline Auto Care home"><span class="logo-badge">N</span>NORTHLINE<br>AUTO CARE</a>
+    <button class="menu" type="button" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">MENU</button>
+    <nav class="nav" id="site-nav" aria-label="Main navigation"><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#process">What to expect</a><a href="#appointment">Contact</a></nav>
+    <a class="button" href="#appointment">Book service</a>
+  </div></header>
+  <main id="top">
+    <section class="hero"><div class="wrap"><div class="hero-copy"><div class="kicker">YOUR NEIGHBORHOOD REPAIR SHOP</div><h1>Keep your<br>day moving.</h1><p>Maintenance and repair explained in plain language, completed with care, and backed by a team that picks up the phone.</p><div class="hero-actions"><a class="button" href="#appointment">Request an appointment</a><a class="button light" href="tel:+15550176442">Call (555) 017-6442</a></div></div></div><div class="hero-trust"><div class="wrap trust-row"><div class="trust"><b>4.9</b><span>Average customer rating</span></div><div class="trust"><b>24</b><span>Month / 24,000 mile warranty</span></div><div class="trust"><b>15+</b><span>Years serving local drivers</span></div></div></div></section>
+    <section id="services"><div class="wrap"><div class="intro"><h2>Repair you can<br>understand.</h2><p>We look after the cars that get families to school, people to work, and weekends out of town. You get a clear recommendation before any work begins.</p></div><div class="services service-grid">
+      <article class="service"><span class="service-icon">01</span><div><h3>Maintenance</h3><p>Oil changes, fluids, filters, factory service, and the little things that prevent bigger ones.</p><a href="#appointment">Schedule service</a></div></article>
+      <article class="service"><span class="service-icon">02</span><div><h3>Brakes &amp; tires</h3><p>Confident stopping and even wear, from a quick check through complete replacement.</p><a href="#appointment">Schedule service</a></div></article>
+      <article class="service"><span class="service-icon">03</span><div><h3>Diagnostics</h3><p>Check-engine lights and hard-to-find issues traced with the right tools and patience.</p><a href="#appointment">Schedule service</a></div></article>
+      <article class="service"><span class="service-icon">04</span><div><h3>Engine &amp; cooling</h3><p>Reliable repairs for the systems that keep your vehicle running comfortably every day.</p><a href="#appointment">Schedule service</a></div></article>
+    </div></div></section>
+    <section class="offer"><div class="offer-grid"><div class="offer-copy"><div class="kicker">NO GUESSWORK</div><h2>See what your car needs—before we start.</h2><p>Our complimentary digital inspection includes clear photos, notes from your technician, and options that help you decide what makes sense now.</p><a class="appointment-link" href="#appointment">Request your inspection <span>→</span></a></div><div class="offer-art" role="img" aria-label="Mechanic inspecting the engine bay of a car"></div></div></section>
+    <section class="reviews" id="reviews"><div class="wrap review-grid"><div><div class="kicker" style="color:var(--orange)">LOCAL DRIVERS</div><h2>Trusted when it matters.</h2><p style="max-width:28ch;color:#5b6268">The kind of shop customers call before they have a problem.</p></div><div><article class="review"><div class="rating">★★★★★</div><blockquote>“No pressure, no mystery charges. They showed me exactly what they found and had me back on the road that afternoon.”</blockquote><cite>— TAYLOR M., VERIFIED CUSTOMER</cite></article><article class="review"><div class="rating">★★★★★</div><blockquote>“The appointment was easy, the explanation was clear, and my car drives better than it has in years.”</blockquote><cite>— CAMERON S., VERIFIED CUSTOMER</cite></article></div></div></section>
+    <section class="process" id="process"><div class="wrap"><div class="intro"><h2>A smoother way<br>to service.</h2><p>Bring us a question, a warning light, or a complete maintenance list. We will meet you with a straightforward plan.</p></div><div class="process-grid"><article class="step"><span class="step-number">01</span><h3>Tell us what’s up</h3><p>Choose a time and share what your vehicle has been doing. We will confirm before your visit.</p></article><article class="step"><span class="step-number">02</span><h3>Get the full picture</h3><p>Our technicians inspect the concern and document what they find in language you can follow.</p></article><article class="step"><span class="step-number">03</span><h3>Decide with confidence</h3><p>Review your estimate, choose your next step, and get back to a vehicle you can count on.</p></article></div></div></section>
+    <section class="appointment" id="appointment"><div class="wrap appointment-grid"><div class="appointment-copy"><div class="kicker" style="color:var(--amber)">LET’S GET STARTED</div><h2>Book your next visit.</h2><p>Send a request and our service team will contact you to confirm a time. This demo form does not transmit information.</p><div class="shop-details"><a href="tel:+15550176442">(555) 017-6442</a><br>Mon–Fri: 7:30am–5:30pm<br>Sat: 8:00am–2:00pm</div></div><form id="appointment-form" aria-label="Appointment request form"><div class="field"><label for="customer-name">Your name</label><input id="customer-name" name="name" autocomplete="name" required></div><div class="field"><label for="customer-email">Email address</label><input id="customer-email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="customer-phone">Phone number</label><input id="customer-phone" name="phone" type="tel" autocomplete="tel" required></div><div class="field"><label for="vehicle">Vehicle</label><input id="vehicle" name="vehicle" placeholder="e.g., 2020 Honda Accord" required></div><div class="field full"><label for="need">How can we help?</label><select id="need" name="need" required><option value="">Choose a service</option><option>Maintenance / oil change</option><option>Brakes or tires</option><option>Check-engine light / diagnostics</option><option>Engine or cooling repair</option><option>Something else</option></select></div><div class="field full"><label for="notes">Anything else we should know?</label><textarea id="notes" name="notes"></textarea></div><button class="button" type="submit">Request appointment</button></form></div></section>
+  </main>
+  <footer><div class="wrap"><div class="footer-grid"><div><a class="logo" href="#top" aria-label="Back to top"><span class="logo-badge">N</span>NORTHLINE<br>AUTO CARE</a><p>Independent automotive repair built on honest recommendations and work that lasts.</p></div><div><h3>SHOP SERVICES</h3><nav class="footer-links" aria-label="Footer services"><a href="#services">Maintenance</a><a href="#services">Brakes &amp; tires</a><a href="#services">Diagnostics</a><a href="#services">Engine &amp; cooling</a></nav></div><div><h3>CONTACT</h3><div class="footer-links"><a href="tel:+15550176442">(555) 017-6442</a><a href="mailto:service@northline.example">service@northline.example</a><span>123 Workshop Way<br>Your City, ST 00000</span></div></div></div><div class="footer-bottom"><span>© 2026 Northline Auto Care. Demonstration website concept.</span><span>Mon–Fri 7:30–5:30 · Sat 8–2</span></div></div></footer>
+  <script>
+    const menu = document.querySelector('.menu');
+    const navigation = document.querySelector('.nav');
+    menu.addEventListener('click', () => { const isOpen = menu.getAttribute('aria-expanded') === 'true'; menu.setAttribute('aria-expanded', String(!isOpen)); menu.textContent = isOpen ? 'MENU' : 'CLOSE'; navigation.classList.toggle('open', !isOpen); });
+    navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { menu.setAttribute('aria-expanded', 'false'); menu.textContent = 'MENU'; navigation.classList.remove('open'); }));
+    document.querySelector('#appointment-form').addEventListener('submit', event => { event.preventDefault(); const form = event.currentTarget; if (!form.checkValidity()) { form.reportValidity(); return; } form.innerHTML = '<p class="form-message" role="status">Your request is ready. In a live site, this is where your service team would receive it.</p>'; });
+  </script>
+</body>
+</html>
